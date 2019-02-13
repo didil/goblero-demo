@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -12,6 +13,10 @@ import (
 )
 
 func main() {
+	// Parse flags
+	n := flag.Int("n", 1, "number of processors")
+	flag.Parse()
+
 	// Create a new Blero backend
 	bl := blero.New("db/")
 	// Start Blero
@@ -20,16 +25,19 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Register a processor
-	fmt.Println("Registering Processor 1 ...")
-	bl.RegisterProcessorFunc(func(j *blero.Job) error {
-		fmt.Printf("[Processor 1] Processing job: %v - data: %v\n", j.Name, string(j.Data))
-		// Simulate processing
-		time.Sleep(2 * time.Second)
-		fmt.Printf("[Processor 1] Done Processing job: %v\n", j.Name)
+	// Register a processor(s)
+	for i := 1; i <= *n; i++ {
+		pI := i
+		fmt.Printf("Registering Processor %v ...\n", pI)
+		bl.RegisterProcessorFunc(func(j *blero.Job) error {
+			fmt.Printf("[Processor %v] Processing job: %v - data: %v\n", pI, j.Name, string(j.Data))
+			// Simulate processing
+			time.Sleep(2 * time.Second)
+			fmt.Printf("[Processor %v] Done Processing job: %v\n", pI, j.Name)
 
-		return nil
-	})
+			return nil
+		})
+	}
 
 	// Enqueue jobs
 	if len(os.Args) > 1 && os.Args[1] == "enqueue" {

@@ -25,7 +25,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Register a processor(s)
+	// Register processor(s)
 	for i := 1; i <= *n; i++ {
 		pI := i
 		fmt.Printf("Registering Processor %v ...\n", pI)

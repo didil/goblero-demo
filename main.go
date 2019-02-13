@@ -24,6 +24,7 @@ func main() {
 	fmt.Println("Registering Processor 1 ...")
 	bl.RegisterProcessorFunc(func(j *blero.Job) error {
 		fmt.Printf("[Processor 1] Processing job: %v - data: %v\n", j.Name, string(j.Data))
+		// Simulate processing
 		time.Sleep(2 * time.Second)
 		fmt.Printf("[Processor 1] Done Processing job: %v\n", j.Name)
 

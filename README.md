@@ -6,7 +6,6 @@ Demo repo for [Goblero Job Queue](https://github.com/didil/goblero)
 
 ````
 # Build
-go get -u github.com/dgraph-io/badger
 go get -u github.com/didil/goblero/pkg/blero
 go build .
 # For the first run

@@ -32,7 +32,10 @@ func main() {
 		for i := 1; i <= 50; i++ {
 			jobName := fmt.Sprintf("Job #%v", i)
 			jobData := []byte(fmt.Sprintf("Job Data #%v", i))
-			bl.EnqueueJob(jobName, jobData)
+			_, err := bl.EnqueueJob(jobName, jobData)
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
 	}
 

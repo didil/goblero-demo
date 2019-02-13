@@ -12,12 +12,15 @@ import (
 )
 
 func main() {
+	// Create a new Blero backend
 	bl := blero.New("db/")
+	// Start Blero
 	err := bl.Start()
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	// Register a processor
 	fmt.Println("Registering Processor 1 ...")
 	bl.RegisterProcessorFunc(func(j *blero.Job) error {
 		fmt.Printf("[Processor 1] Processing job: %v - data: %v\n", j.Name, string(j.Data))
@@ -27,6 +30,7 @@ func main() {
 		return nil
 	})
 
+	// Enqueue jobs
 	if len(os.Args) > 1 && os.Args[1] == "enqueue" {
 		fmt.Println("Enqueuing jobs ...")
 		for i := 1; i <= 50; i++ {
@@ -45,7 +49,8 @@ func main() {
 	signal.Notify(exitCh, syscall.SIGTERM)
 	s := <-exitCh
 	fmt.Printf("Caught signal %v. Exiting ...\n", s)
-	bl.Stop()
 
+	// Stop Blero
+	bl.Stop()
 	os.Exit(0)
 }

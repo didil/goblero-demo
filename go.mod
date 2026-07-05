@@ -2,16 +2,21 @@ module github.com/didil/goblero-demo
 
 go 1.26.3
 
-require github.com/didil/goblero v0.2.2
+require github.com/didil/goblero v0.3.0
 
 require (
-	github.com/AndreasBriese/bbloom v0.0.0-20190825152654-46b345b51c96 // indirect
-	github.com/cespare/xxhash v1.1.0 // indirect
-	github.com/dgraph-io/badger v1.6.2 // indirect
-	github.com/dgraph-io/ristretto v0.0.2 // indirect
-	github.com/dustin/go-humanize v1.0.0 // indirect
-	github.com/golang/protobuf v1.3.1 // indirect
-	github.com/pkg/errors v0.8.1 // indirect
-	golang.org/x/net v0.0.0-20190620200207-3b0461eec859 // indirect
-	golang.org/x/sys v0.2.0 // indirect
+	github.com/cespare/xxhash/v2 v2.3.0 // indirect
+	github.com/dgraph-io/badger/v4 v4.9.2 // indirect
+	github.com/dgraph-io/ristretto/v2 v2.4.0 // indirect
+	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/go-logr/logr v1.4.3 // indirect
+	github.com/go-logr/stdr v1.2.2 // indirect
+	github.com/google/flatbuffers v25.12.19+incompatible // indirect
+	github.com/klauspost/compress v1.19.0 // indirect
+	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
+	go.opentelemetry.io/otel v1.44.0 // indirect
+	go.opentelemetry.io/otel/metric v1.44.0 // indirect
+	go.opentelemetry.io/otel/trace v1.44.0 // indirect
+	golang.org/x/sys v0.46.0 // indirect
+	google.golang.org/protobuf v1.36.11 // indirect
 )

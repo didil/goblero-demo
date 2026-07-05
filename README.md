@@ -2,11 +2,11 @@
 
 Demo repo for [Goblero Job Queue](https://github.com/didil/goblero)
 
-## Usage 
+## Usage
 
 ````
 # Build
-go get -u github.com/didil/goblero/pkg/blero
+go mod download
 go build .
 # For the first run
 ./goblero-demo enqueue
